@@ -4,24 +4,25 @@
 
 **From Weights to Concepts: Data-Free Interpretability of CLIP via Singular Vector Decomposition**
 
-[![Paper](https://img.shields.io/badge/Paper-CVPR%202026-blue)](TODO)
-[![arXiv](https://img.shields.io/badge/arXiv-TODO-b31b1b)](TODO)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Python 3.12+](https://img.shields.io/badge/Python-3.12%2B-3776AB)](https://www.python.org/)
-[![PyTorch](https://img.shields.io/badge/PyTorch-2.6%2B-EE4C2C)](https://pytorch.org/)
+<div align="center">
+<img alt="CVPR 2026" src="https://img.shields.io/badge/CVPR_2026-2563eb?style=flat&logo=ieee&logoColor=white">
+<a href="https://arxiv.org/abs/2603.24653"><img alt="arXiv" src="https://img.shields.io/badge/arXiv_2603.24653-b31b1b?logo=arxiv&logoColor=white"></a>
 
-[Francesco Gentile](mailto:francesco.gentile@unitn.it)<sup>1\*</sup>,
-[Nicola Dall'Asen](mailto:nicola.dallasen@unitn.it)<sup>1,2</sup>,
-[Francesco Tonini](mailto:francesco.tonini@unitn.it)<sup>1,3</sup>,
-[Massimiliano Mancini](mailto:massimiliano.mancini@unitn.it)<sup>1</sup>,
-[Lorenzo Vaquero](mailto:lvaquerotal@fbk.eu)<sup>3</sup>,
-[Elisa Ricci](mailto:e.ricci@unitn.it)<sup>1,3</sup>
+<a href="https://www.python.org"><img alt="Python" src="https://img.shields.io/badge/-Python_3.12%2B-blue?logo=python&logoColor=white"></a>
+<a href="https://pytorch.org/get-started/locally/"><img alt="PyTorch" src="https://img.shields.io/badge/PyTorch_2.6%2B-ee4c2c?logo=pytorch&logoColor=white"></a>
+<a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-green.svg"></a>
+</div>
+
+[Francesco Gentile](https://github.com/frangente)<sup>1</sup>,
+[Nicola Dall'Asen](https://fodark.xyz/)<sup>1,2</sup>,
+[Francesco Tonini](https://tonini.dev/)<sup>1,3</sup>,
+[Massimiliano Mancini](https://mancinimassimiliano.github.io/)<sup>1</sup>,
+[Lorenzo Vaquero](https://scholar.google.es/citations?user=G0ZcGDYAAAAJ)<sup>3</sup>,
+[Elisa Ricci](https://eliricci.eu/)<sup>1,3</sup>
 
 <sup>1</sup>University of Trento &nbsp;
 <sup>2</sup>University of Pisa &nbsp;
 <sup>3</sup>Fondazione Bruno Kessler
-
-<sup>\*</sup>Corresponding author
 
 </div>
 
@@ -181,10 +182,10 @@ If you find this work useful, please cite our paper:
 
 ```bibtex
 @inproceedings{gentile2026sith,
-    title     = {From Weights to Concepts: Data-Free Interpretability of {CLIP} via Singular Vector Decomposition},
-    author    = {Gentile, Francesco and Dall'Asen, Nicola and Tonini, Francesco and Mancini, Massimiliano and Vaquero, Lorenzo and Ricci, Elisa},
-    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-    year      = {2026}
+	title        = {From Weights to Concepts: Data-Free Interpretability of CLIP via Singular Vector Decomposition},
+	author       = {Gentile, Francesco and Dall'Asen, Nicola and Tonini, Francesco and Mancini, Massimiliano and Vaquero, Lorenzo and Ricci, Elisa},
+	year         = 2026,
+	booktitle    = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}
 }
 ```
 
