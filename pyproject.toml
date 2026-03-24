@@ -1,0 +1,85 @@
+[project]
+name = "sith"
+version = "0.1.0"
+description = "Code for the paper 'From Weights to Concepts: Data-Free Interpretability of CLIP via Singular Vector Decomposition'"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Francesco Gentile", email = "francesco.gentile@unitn.it" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "jaxtyping>=0.3.9",
+    "open-clip-torch>=2.32",
+    "scikit-learn>=1.8.0",
+    "torch>=2.6",
+    "torchvision>=0.21.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.10.7,<0.11.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "basedpyright>=1.38.2",
+    "prek>=0.3.4",
+    "ruff>=0.15.4",
+]
+experiments = [
+    "ipykernel>=7.2.0",
+    "ipywidgets>=8.1.8",
+    "openai>=2.24.0",
+]
+scripts = [
+    "datasets>=4.6.1",
+    "gdown>=5.2.1",
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 88
+src = [ "src" ]
+fix = true
+format.preview = true
+lint.select = [ "ALL" ]
+lint.fixable = [ "ALL" ]
+lint.ignore = [
+    "ANN401",   # no Any allowed in function signatures
+    "COM812",   # mandatory trailing comma
+    "ERA001",   # found commented-out code
+    "F722",     # syntax error in forward annotation (incompatible with jaxtyping)
+    "N803",     # argument names should be lowercase
+    "N806",     # variable names should be lowercase
+    "N812",     # lowercase imports should remain lowercase when aliased
+    "PGH003",   # use specific rules in type: ignore comments
+    "PLR0913",  # more than 5 arguments in function definition
+    "PLR2004",  # magic value used in comparison
+    "PLW2901",  # for loop variable overwritten
+    "PTH123",   # use Path.open() instead of open(Path)
+    "RET504",   # unnecessary assignment before return statement
+    "SLF001",   # access to private member of a class (already checked by basedpyright)
+]
+lint.pydocstyle.convention = "google"
+
+[tool.ruff.lint.per-file-ignores]
+"scripts/*" = [
+    "D103",     # missing docstring in public function
+    "INP001",   # implicit namespace
+    "T201",     # print found
+]
+"experiments/*" = [
+    "D103",     # missing docstring in public function
+    "INP001",   # implicit namespace
+    "T201",     # print found
+]
+
+[tool.basedpyright]
+typeCheckingMode = "strict"
+pythonVersion = "3.12"
+reportUnknownMemberType = false
+reportUnknownArgumentType = false
+reportUnknownVariableType = false
+reportUnknownParameterType = false
+reportUnknownLambdaType = false
+reportMissingTypeStubs = false
