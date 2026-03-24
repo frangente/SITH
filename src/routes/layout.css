@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&family=Sora:wght@300;400;500;600&display=swap');
+
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+	--background: #faf8f3;
+	--foreground: #1c1a15;
+
+	--card: #f1ede5;
+	--card-foreground: #1c1a15;
+
+	--muted: #e7e2d8;
+	--muted-foreground: #7a7268;
+
+	--primary: #a86828;
+	--primary-foreground: #faf8f3;
+	--primary-subtle: color-mix(in srgb, var(--primary) 10%, transparent);
+	--primary-border: color-mix(in srgb, var(--primary) 22%, transparent);
+
+	--accent-foreground: #c8c2b8;
+
+	--border: rgba(28, 26, 21, 0.08);
+	--input: rgba(28, 26, 21, 0.14);
+	--ring: rgba(168, 104, 40, 0.5);
+
+	--success: #3a9a4e;
+	--success-subtle: color-mix(in srgb, var(--success) 10%, transparent);
+	--success-border: color-mix(in srgb, var(--success) 25%, transparent);
+}
+
+.dark {
+	--background: #0c0b09;
+	--foreground: #e4dfd4;
+
+	--card: #131210;
+	--card-foreground: #e4dfd4;
+
+	--muted: #1a1815;
+	--muted-foreground: rgb(157, 152, 144);
+
+	--primary: #c8935a;
+	--primary-foreground: #0c0b09;
+
+	--accent-foreground: #2c2924;
+
+	--border: rgba(228, 223, 212, 0.06);
+	--input: rgba(228, 223, 212, 0.12);
+	--ring: rgba(200, 147, 90, 0.5);
+
+	--success: #67b076;
+}
+
+@theme inline {
+	--font-sans: 'Sora', sans-serif;
+	--font-serif: 'Newsreader', serif;
+
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--color-card: var(--card);
+	--color-card-foreground: var(--card-foreground);
+	--color-muted: var(--muted);
+	--color-muted-foreground: var(--muted-foreground);
+	--color-primary: var(--primary);
+	--color-primary-foreground: var(--primary-foreground);
+	--color-primary-subtle: var(--primary-subtle);
+	--color-primary-border: var(--primary-border);
+	--color-accent-foreground: var(--accent-foreground);
+	--color-border: var(--border);
+	--color-input: var(--input);
+	--color-ring: var(--ring);
+	--color-success: var(--success);
+	--color-success-subtle: var(--success-subtle);
+	--color-success-border: var(--success-border);
+}
+
+@layer base {
+	html {
+		scroll-behavior: smooth;
+	}
+	body {
+		background: var(--background);
+		color: var(--foreground);
+		font-family: var(--font-sans);
+		font-size: 15px;
+		line-height: 1.75;
+		-webkit-font-smoothing: antialiased;
+	}
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+}
