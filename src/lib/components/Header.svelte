@@ -3,7 +3,7 @@
 	import DownloadIcon from '~icons/mdi/download';
 
 	const authors = [
-		{ name: 'Francesco Gentile', ref: '1*' },
+		{ name: 'Francesco Gentile', ref: '1' },
 		{ name: 'Nicola Dall\u2019Asen', ref: '1,2' },
 		{ name: 'Francesco Tonini', ref: '1,3' },
 		{ name: 'Massimiliano Mancini', ref: '1' },
