@@ -1,8 +1,6 @@
 <script lang="ts">
-	import { resolve } from '$app/paths';
 	import GithubIcon from '~icons/mdi/github';
 	import DownloadIcon from '~icons/mdi/download';
-	import PaperIcon from '~icons/mdi/file-pdf';
 
 	const authors = [
 		{ name: 'Francesco Gentile', ref: '1*' },
@@ -74,18 +72,15 @@
 
 		<!-- Action links -->
 		<nav class="flex flex-wrap justify-center gap-1.75">
-			<a href={resolve('/')} class="btn btn-solid">
-				<PaperIcon class="h-3.25 w-3.25" />
-				Paper
-			</a>
-			<a href={resolve('/')} class="btn btn-ghost">arXiv</a>
-			<a href="https://github.com/frangente/SITH" class="btn btn-ghost">
+			<a href="https://arxiv.org/abs/2603.24653" class="btn btn-solid" target="_blank">arXiv</a>
+			<a href="https://github.com/frangente/SITH" class="btn btn-ghost" target="_blank">
 				<GithubIcon class="h-3.25 w-3.25" />
 				Code
 			</a>
 			<a
 				href="https://drive.google.com/drive/folders/1vL75AWVFsGPU-b1x6fenYdwjcAeL_OJx"
 				class="btn btn-ghost"
+				target="_blank"
 			>
 				<DownloadIcon class="h-3.25 w-3.25" />
 				Data
