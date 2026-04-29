@@ -36,7 +36,7 @@ def main(args: argparse.Namespace) -> None:
     output_path = Path(f"data/dictionaries/{args.dictionary}.txt")
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
-    gdown.download(url, output=output_path, quiet=False, fuzzy=True)
+    gdown.download(url, output=str(output_path), quiet=False, fuzzy=True)
 
 
 if __name__ == "__main__":

@@ -67,9 +67,9 @@ To reproduce the paper's experiments, clone the repository and install the depen
 ```bash
 git clone https://github.com/frangente/SITH.git
 cd SITH
-uv sync                       # core dependencies
-uv sync --group scripts       # + dependencies for data preparation scripts
-uv sync --group experiments   # + dependencies for experiments
+uv sync --frozen                       # core dependencies
+uv sync --group scripts --frozen       # + dependencies for data preparation scripts
+uv sync --group experiments --frozen   # + dependencies for experiments
 ```
 
 ## Data
@@ -109,7 +109,7 @@ data/
 layer-{layer}_{left|right}_{foldln|nofoldln}_{dictionary}_{method}_sparsity-{K}.pt
 ```
 
-Each `.pt` file contains a dict with `scores` and `indices` tensors, representing the sparse decomposition of the specified singular vectors for all heads in the given layer. Each tensor has shape `(num_heads * num_singular_vectors, K)`, where `K` is the sparsity level.
+Each `.pt` file contains a dict with `scores` and `indices` tensors, representing the sparse decomposition of the specified singular vectors for all heads in the given layer. Each tensor has shape `(num_heads, rank, K)`, where `rank` is the number of singular vectors decomposed per head and `K` is the sparsity level (number of concepts selected per vector).
 
 ## Scripts
 

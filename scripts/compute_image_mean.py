@@ -65,12 +65,7 @@ def main(args: argparse.Namespace) -> None:
         device=args.device,
     )
 
-    dataset = datasets.load_dataset(
-        "pixparse/cc12m-wds",
-        split="train",
-        streaming=True,
-        num_proc=args.num_workers,
-    )
+    dataset = datasets.load_dataset("pixparse/cc12m-wds", split="train", streaming=True)
     dataset = dataset.map(lambda x: {"jpg": transform(x["jpg"])})  # pyright: ignore[reportCallIssue]
 
     loader = DataLoader(
@@ -88,7 +83,7 @@ def main(args: argparse.Namespace) -> None:
         for images in tqdm(loader, desc="Computing image embeddings"):
             images = images.to(args.device, non_blocking=True)
             embeddings = model.encode_image(images, normalize=True)  # pyright: ignore[reportCallIssue]
-            embeddings = embeddings.cpu(non_blocking=True)
+            embeddings = embeddings.cpu()
 
             if embeds_sum is None:
                 embeds_sum = embeddings.sum(dim=0)
@@ -101,7 +96,9 @@ def main(args: argparse.Namespace) -> None:
         return
 
     mean = embeds_sum / total
-    output_path = Path("models") / args.model_name / args.pretrained / "image_mean.pt"
+    output_path = (
+        Path("data/models") / args.model_name / args.pretrained / "image_mean.pt"
+    )
     output_path.parent.mkdir(parents=True, exist_ok=True)
     torch.save(mean, output_path)
 

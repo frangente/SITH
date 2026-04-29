@@ -145,7 +145,7 @@ def orthogonal_matching_pursuit(
         batch_indices = torch.arange(B, device=x.device)
         selected[batch_indices, best_idx] = True
 
-        codes = _lstsq(x, dictionary, selected, k, positive=positive)
+        codes = _lstsq(x, dictionary, selected, num_selected=k + 1, positive=positive)
 
         # Update residual
         residual = x - torch.matmul(codes, dictionary)  # (B, D)
@@ -218,7 +218,7 @@ def coherent_orthogonal_matching_pursuit(
         batch_indices = torch.arange(B, device=x.device)
         selected[batch_indices, best_idx] = True
 
-        codes = _lstsq(x, dictionary, selected, k, positive=positive)
+        codes = _lstsq(x, dictionary, selected, num_selected=k + 1, positive=positive)
 
         # Update residual
         residual = x - torch.matmul(codes, dictionary)  # (B, D)

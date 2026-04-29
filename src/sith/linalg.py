@@ -68,7 +68,8 @@ def lstsq(
             when `positive=True`.
 
     Returns:
-        The least squares solution `x` of shape `(n,)`.
+        The least squares solution `x` of shape `(n,)` or `(batch, n)` for batched
+        inputs.
     """
     if not positive:
         # use torch.linalg.lstsq when no constraints are needed
@@ -77,6 +78,9 @@ def lstsq(
 
     if A.ndim == 2:
         A = A.unsqueeze(0)  # pyright: ignore[reportConstantRedefinition]
+
+    if b.ndim == 1:
+        b = b.unsqueeze(0)
         squeeze = True
     else:
         squeeze = False

@@ -114,8 +114,9 @@ def load_model_and_data(
         center_weights=args.fold_ln,
         layer_indices=args.layers,
     )
+    model = model.eval().to(args.device).requires_grad_(False)  # noqa: FBT003
 
-    model_dir = Path("models") / f"{args.model_name}_{args.pretrained}"
+    model_dir = Path("data/models") / args.model_name / args.pretrained
 
     dictionary = torch.load(model_dir / "dictionaries" / f"{args.dictionary}.pt")
     dictionary = F.normalize(dictionary, dim=-1)
@@ -123,7 +124,7 @@ def load_model_and_data(
     dictionary = F.normalize(dictionary, dim=-1)
     dictionary = dictionary.to(args.device)
 
-    image_mean = torch.load(model_dir / "means" / "cc12m.pt", device=args.device)
+    image_mean = torch.load(model_dir / "image_mean.pt", map_location=args.device)
 
     return model, dictionary, image_mean
 
@@ -185,15 +186,17 @@ def decompose_layer(
     x = x.flatten(0, 1)  # (heads * rank, dim)
 
     output_file = (
-        Path("models")
-        / f"{args.model_name}_{args.pretrained}"
+        Path("data/models")
+        / args.model_name
+        / args.pretrained
         / "decompositions"
-        / f"layer-{layer_idx:02d}_{args.sv_type}-{'foldln' if args.fold_ln else 'nofoldln'}_"  # noqa: E501
+        / f"layer-{layer_idx:02d}_{args.sv_type}_{'foldln' if args.fold_ln else 'nofoldln'}_"  # noqa: E501
         f"{args.dictionary}_{args.method}_sparsity-{args.sparsity}.pt"
     )
+    output_file.parent.mkdir(parents=True, exist_ok=True)
 
     if output_file.exists() and not args.force:
-        tmp = torch.load(output_file, device="cpu")
+        tmp = torch.load(output_file, map_location="cpu")
         all_scores, all_indices = tmp["scores"], tmp["indices"]
     else:
         all_scores = torch.zeros(len(x), args.sparsity)
@@ -206,7 +209,7 @@ def decompose_layer(
 
     x_proj = model.proj(model.ln_post(x))
     x_proj = F.normalize(x_proj, dim=-1)
-    x_proj = x - image_mean
+    x_proj = x_proj - image_mean
     x_proj = F.normalize(x_proj, dim=-1)
 
     for i in tqdm(
@@ -223,9 +226,8 @@ def decompose_layer(
         all_scores[i : i + args.batch_size] = scores
         all_indices[i : i + args.batch_size] = indices
 
-        if (i + args.batch_size) % (args.batch_size * 10) == 0:
-            torch.save({"scores": all_scores, "indices": all_indices}, output_file)
-
+    all_scores = all_scores.view(w_vo.shape[0], args.rank, args.sparsity).cpu()
+    all_indices = all_indices.view(w_vo.shape[0], args.rank, args.sparsity).cpu()
     torch.save({"scores": all_scores, "indices": all_indices}, output_file)
 
 

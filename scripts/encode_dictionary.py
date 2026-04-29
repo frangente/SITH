@@ -54,7 +54,7 @@ def main(args: argparse.Namespace) -> None:
     torch.set_grad_enabled(False)
     torch.set_float32_matmul_precision("high")
 
-    input_path = Path(f"dictionaries/{args.dictionary}.txt")
+    input_path = Path(f"data/dictionaries/{args.dictionary}.txt")
     with input_path.open("r") as f:
         dictionary = f.read().splitlines()
 
@@ -81,7 +81,7 @@ def main(args: argparse.Namespace) -> None:
 
     all_embeddings = torch.cat(all_embeddings, dim=0)
     output_path = (
-        Path("models")
+        Path("data/models")
         / args.model_name
         / args.pretrained
         / f"dictionaries/{args.dictionary}.pt"
