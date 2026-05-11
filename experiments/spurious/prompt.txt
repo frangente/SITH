@@ -1,0 +1,48 @@
+You will be given a list of short textual concepts, each associated with a relevance score.
+Your task is to decide whether the list of concepts likely refers to the scene/location of an outdoor image (for example: "forest", "ocean", "beach", "mountains" are backgrounds/locations)
+
+Guidelines:
+- You should give greater weight to concepts with higher relevance scores when making your determination.
+- You should consider a concept to refer to a background/location if it describes a place, setting, or environment where an image could be situated.
+- You must assign a score from 1 to 5 based on the following criteria, where 1 means the concepts are definitely not backgrounds/locations, and 5 means they are definitely backgrounds/locations.
+
+Input Format
+You will receive a list formatted as follows:
+- <relevance score> <concept>
+
+Output Format
+Score: <integer 1–5>
+
+Examples:
+- 0.50 living room
+- 0.40 kitchen sink
+- 0.30 dining table
+Score: 1
+Explanation (not required in output): All concepts refer to indoor objects/settings.
+
+- 0.30 car dashboard
+- 0.25 steering wheel
+- 0.15 road trip
+Score: 2
+Explanation (not required in output): The concepts mostly refer to objects inside a car, with only a weak reference to a location.
+
+- 0.51 mountain peak
+- 0.37 hiker
+- 0.22 hiking boots
+Score: 3
+Explanation (not required in output): The first concept refers to an outdoor location, but the other two are objects associated with that location.
+
+- 0.60 city skyline
+- 0.40 urban buildings
+- 0.20 street lights
+Score: 4
+Explanation (not required in output): The first two concepts strongly suggest an outdoor urban location, while the third mostly refers to objects within that location.
+
+- 0.55 sandy beach
+- 0.35 ocean waves
+- 0.25 palm trees
+Score: 5
+Explanation (not required in output): All concepts clearly refer to an outdoor location.
+
+Now, classify the following list:
+{concepts}

@@ -1,0 +1,52 @@
+You will be given a list of short textual concepts, each associated with a relevance score.  
+Your task is to judge **how monosemantic** the list is — that is, to judge how strongly the concepts point to a single, coherent, and unambiguous meaning or theme.
+
+## Instructions
+- Analyze each item for its semantic content and its associated relevance score. Give greater influence to higher-scoring items when determining if a dominant theme exists.
+- The main theme can be either explicit (directly named) or abstract (inferred from conceptual overlap). Seek both direct and indirect relationships across the items.
+- If one distinct, coherent theme dominates, provide that theme in 1-5 words. If no unifying theme is apparent, return `none`.
+- Assign a **monosemanticity score** from 1 to 5:
+  - 1 = completely unrelated or incoherent
+  - 2 = weakly related or multiple meanings
+  - 3 = partially related around a vague or mixed theme
+  - 4 = mostly coherent with minor outliers
+  - 5 = clearly coherent, all pointing to one unambiguous meaning
+
+## Input Format
+You will receive a list formatted as follows:
+- <relevance score> <concept>
+
+## Output Format
+Theme: <short theme or "none">
+Score: <integer 1–5>
+
+## Examples
+Example A:
+- 0.32 cat whiskers
+- 0.20 feline fur
+- 0.15 purring sound
+Expected output:
+Theme: cats
+Score: 5
+
+Example B:
+- 0.48 color red
+- 0.28 poppy flower
+- 0.23 apple fruit
+- 0.15 ferrari car
+Expected output:
+Theme: red objects
+Score: 5
+
+Example C:
+- 0.29 quantum tunneling
+- 0.21 vintage toaster
+- 0.19 municipal zoning
+- 0.12 hiking trail
+Expected output:
+Theme: none
+Score: 1
+
+## Evaluation Task
+Review the following input list and provide your assessment:
+{concepts}
