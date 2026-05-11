@@ -39,7 +39,7 @@ uv run python experiments/fidelity/compute_coherence.py \
     --api-key <your-openai-api-key>
 ```
 
-Results are written to `coherence-results/<decomposition-stem>.txt` (relative to the working directory), with one line per singular vector in the format `<theme>,<score>`. If the output file already exists, the script skips the evaluation.
+Results are written to `coherence-results/<decomposition-stem>.txt` (relative to the script directory), with one line per singular vector in the format `<theme>,<score>`. If the output file already exists, the script skips the evaluation.
 
 **Options:**
 

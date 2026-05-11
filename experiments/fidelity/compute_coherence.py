@@ -117,7 +117,7 @@ async def query_all(
 def main(args: argparse.Namespace) -> None:
     file = args.file.resolve()
 
-    out_file = Path(f"coherence-results/{file.stem}.txt")
+    out_file = Path(__file__).parent / "coherence-results" / f"{file.stem}.txt"
     out_file.parent.mkdir(exist_ok=True)
     if out_file.exists():
         print(f"Output file {out_file} already exists, skipping...")

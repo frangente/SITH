@@ -71,7 +71,7 @@ def edit_model(model: ImageEncoder) -> ImageEncoder:
 
     for l_idx in [20, 21, 22, 23]:
         file = f"layer-{l_idx}_right_foldln_conceptnet_comp-0.3_sparsity-5.txt"
-        file = Path("spurious-decisions") / file
+        file = Path(__file__).parent / "spurious-decisions" / file
         if not file.exists():
             msg = f"File {file} not found. Please run the query_gpt.py script first to generate it."  # noqa: E501
             raise FileNotFoundError(msg)
