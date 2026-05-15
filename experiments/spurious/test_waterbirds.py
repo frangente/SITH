@@ -1,5 +1,5 @@
 # Copyright 2026 Francesco Gentile.
-# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: MIT
 
 """Script to evaluate the effect of editing CLIP on the Waterbirds dataset."""
 

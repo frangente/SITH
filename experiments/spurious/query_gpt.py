@@ -1,5 +1,5 @@
 # Copyright 2026 Francesco Gentile.
-# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: MIT
 
 """Script to query GPT to classify each singular vector as background-related or not."""
 
