@@ -173,7 +173,7 @@ The experiments from the paper are organized under `experiments/`, with one subd
 | Sec. 4.2 | Grounding Singular Vectors to Images | [`experiments/grounding/`](experiments/grounding/)           | 🚫     |
 | Sec. 5.1 | Suppressing Spurious Correlations    | [`experiments/spurious/`](experiments/spurious/)             | ✅     |
 | Sec. 5.2 | Removing NSFW Concepts               | [`experiments/nsfw/`](experiments/nsfw/)                     | ✅     |
-| Sec. 5.3 | Improving Classification Performance | [`experiments/classification/`](experiments/classification/) | 🚫     |
+| Sec. 5.3 | Improving Classification Performance | [`experiments/classification/`](experiments/classification/) | ✅     |
 | Sec. 6   | Interpreting Model Adaptation        | [`experiments/finetune/`](experiments/finetune/)             | 🚫     |
 
 ## Citation
