@@ -1,3 +1,3 @@
 # SITH Website
 
-The website is currently hosted at [https://dvl-research.fbk.eu/SITH/](https://dvl-research.fbk.eu/SITH/).
+The website is currently hosted at [https://frangente.dev/publications/sith](https://frangente.dev/publications/sith).
